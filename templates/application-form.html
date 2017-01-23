@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Application Form{% endblock %}
+
+{% block content %}
+    <h1>Application Form</h1>
+    <div class="instruction">
+        <h3>This is an application form to help you find a job! Please fill out your details below.</h3>
+    </div>
+<form action = "/application-success" method="POST">
+    First Name :<input type= "text" name="first-name"><br><br>
+    <label for="last-name">Last Name :</label>
+    <input id="last-name" type= "text" name="last-name"><br><br>
+    Salary Requirement :<input type= "text" name="salary_requiremment"><br><br>
+    Which job are you applying for? <br><br>
+    {% for job in jobs %}
+        <input type="radio" name="job" value{{ job }}>{{ job }}<br>
+    {% endfor %}
+    
+    <input type="submit">
+
+</form>
+{% endblock %}
+
+
